@@ -10,6 +10,9 @@
         <a-asset-item id="tree" src="/asset/tree/tree.gltf"></a-asset-item>
       </a-assets>
       -->
+      <a-assets>
+        <audio id="sound" src="sound.mp3"></audio>
+      </a-assets>
       <a-marker type="pattern" preset="pattern" url="https://raw.githubusercontent.com/HankunYu/Xmas.github.io/glitch/asset/tree/pattern-Scan.patt">
         <a-entity myobject
           position="0 0 0"
@@ -18,7 +21,20 @@
         >
         </a-entity>
       </a-marker>
+      <a-entity sound="src: #sound" autoplay="false"></a-entity>
       <a-entity camera></a-entity>
     </a-scene>
+    <script>
+      AFRAME.registerComponent("soundhandler", {
+        tick: function() {
+          var entity = document.querySelector("[sound]");
+          if (document.querySelector("a-marker").object3D.visible == true) {
+            entity.components.sound.playSound();
+          } else {
+            entity.components.sound.pauseSound();
+          }
+        }
+      });
+    </script>
   </body>
 </html>

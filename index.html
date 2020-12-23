@@ -26,17 +26,32 @@
       <a-entity sound="src: #sound" autoplay="false"></a-entity>
       <a-entity camera></a-entity>
     </a-scene>
+    
     <script>
-      AFRAME.registerComponent("soundhandler", {
-        tick: function() {
-          var entity = document.querySelector("[sound]");
-          if (document.querySelector("a-marker").object3D.visible == true) {
-            entity.components.sound.playSound();
-          } else {
-            entity.components.sound.pauseSound();
-          }
-        }
-      });
+    AFRAME.registerComponent('registerevents', {
+		init: function () {
+			var marker = this.el;
+
+			// Make the element emit events when found and when lost.
+			marker.setAttribute('emitevents', 'true');
+
+			marker.addEventListener('markerFound', function() {
+				var markerId = marker.id;
+				console.log('markerFound', markerId);
+				console.log("Marker Found!");
+        entity.components.sound.playSound();
+				// TODO: Add your own code here to react to the marker being found.
+			});
+
+			marker.addEventListener('markerLost', function() {
+				var markerId = marker.id;
+				console.log('markerLost', markerId);
+				console.log("Marker Gone!");
+        entity.components.sound.pauseSound();
+				// TODO: Add your own code here to react to the marker being lost.
+			});
+		}
+	}); 
      
     </script>
   </body>

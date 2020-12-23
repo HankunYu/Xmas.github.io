@@ -11,13 +11,8 @@
       </a-assets>
       -->
       <a-assets>
-        <audio id="sound" src="sound.mp3"></audio>
+        <audio id="sound" src="/sound.mp3"></audio>
       </a-assets>
-	    
-	     <a-assets>
-		<a-asset-item id="exoFont" src="fonts/exoBlack.typeface.json"></a-asset-item>
-		<img id="pixels" src="images/pixels.png" />
-	</a-assets>
 
       <a-marker type="pattern" preset="pattern" url="https://raw.githubusercontent.com/HankunYu/Xmas.github.io/glitch/asset/tree/pattern-Scan.patt">
         <a-entity myobject
@@ -25,7 +20,8 @@
           scale="0.006 0.006 0.006"
           gltf-model="https://raw.githubusercontent.com/HankunYu/Xmas.github.io/glitch/asset/tree/scene.gltf"
                   ></a-entity>
-        <a-entity position="0 0 0" scale="10 10 10" text="value: Merry Christmas!;color:red"></a-entity>
+        <a-entity position="3.51 2.51 -0.001" scale="10 10 10" text="font: https://cdn.aframe.io/fonts/mozillavr.fnt;value: Merry Christmas!;color:yellow"></a-entity>
+        <a-entity position="3.5 2.5 0" scale="10 10 10" text="font: https://cdn.aframe.io/fonts/mozillavr.fnt;value: Merry Christmas!;color:red"></a-entity>
       </a-marker>
       <a-entity sound="src: #sound" autoplay="false"></a-entity>
       <a-entity camera></a-entity>

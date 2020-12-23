@@ -3,7 +3,7 @@
   <script src="https://aframe.io/releases/1.0.4/aframe.min.js"></script>
   <!-- we import arjs version without NFT but with marker + location based support -->
   <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar.js"></script>
-  <script src="js/aframe-text-geometry-component.min.js"></script>
+  <script src="https://unpkg.com/aframe-text-geometry-component@0.5.1/dist/aframe-text-geometry-component.min.js"></script>
   <body style="margin : 0px; overflow: hidden;">
     <a-scene embedded arjs>
       <!--
@@ -14,6 +14,12 @@
       <a-assets>
         <audio id="sound" src="sound.mp3"></audio>
       </a-assets>
+	    
+	     <a-assets>
+		<a-asset-item id="exoFont" src="fonts/exoBlack.typeface.json"></a-asset-item>
+		<img id="pixels" src="images/pixels.png" />
+	</a-assets>
+
       <a-marker type="pattern" preset="pattern" url="https://raw.githubusercontent.com/HankunYu/Xmas.github.io/glitch/asset/tree/pattern-Scan.patt">
         <a-entity myobject
           position="0 0 0"
@@ -22,7 +28,7 @@
                   
         text-geometry="value: Merry Christmas!; font: #exoFont;"
 			material="color: yellow; src: #pixels; repeat: 0.5 0.5;" 
-			rotation="-90 0 0"
+			
                   
                   >
         </a-entity>
